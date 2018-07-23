@@ -18,7 +18,7 @@ if ($conn->connect_error) {
 
 /* Perform SQL query */
 
-$sql = "SELECT * FROM Plants";
+$sql = "SELECT * FROM Germination";
 $result = $conn->query($sql);
 
 /*Display result in plain text*/
@@ -35,10 +35,12 @@ $result = $conn->query($sql);
     echo "<style>\n";
     echo "table, th, td {border: 1px solid black;} </style>\n";
 if ($result->num_rows > 0) {
-    echo "<table><tr><th>ID</th><th>Name</th></tr>";
+//    echo "<table><tr><th>ID</th><th>Name</th></tr>";
+    echo "<table><tr><th>Name</th><th>Germination</th><th>Light</th><th>Harvest</th></tr>";
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "<tr><td>".$row["ID"]."</td><td>".$row["plant_name"]."</td></tr>";
+//        echo "<tr><td>".$row["ID"]."</td><td>".$row["plant_name"]."</td></tr>";
+        echo "<tr><td>".$row["name"]."</td><td>".$row["germinate"]."</td><td>".$row["light"]."</td><td>".$row["harvest"]."</td></tr>";
     }
     echo "</table>";
 } else {
